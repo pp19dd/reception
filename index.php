@@ -24,7 +24,7 @@ body, html {
 }
 #map {
     width: 100%;
-    height: 100%;
+    height: 80vh;
 }
 .intro {
     padding: 0.5em;
