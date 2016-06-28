@@ -18,6 +18,8 @@ if( isset( $_SERVER['HTTP_X_FORWARDED_FOR']) ) {
     $ip = $_SERVER['REMOTE_ADDR'];
 }
 
+$ip = sha1(SALT . $ip);
+
 $ret = array(
     "status" => "ok",
     "stamp" => date("r")

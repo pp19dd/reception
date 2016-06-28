@@ -8,6 +8,6 @@ CREATE TABLE IF NOT EXISTS `entries` (
   `lat` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `lng` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `zoom` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `ip` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `ip` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
