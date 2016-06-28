@@ -81,7 +81,7 @@ label { cursor: pointer }
                     <td colspan="3">
                         <div class="intro">
                             <p class="emp">VOA Persian would like to know about your satellite reception quality.</p>
-                            <p>Taking this survey will help improve our broadcasts and programming.  While we would like your surveyed location to be as near you as possible (in your neighborhood), we will not permanently store or share this information with anyone.</p>
+                            <p>This data will be used in aggregate to improve the availability of our broadcasts. No personal information will be collected beyond general location and whether our signal is clear.</p>
                         </div>
                     </td>
                 </tr>
