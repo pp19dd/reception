@@ -9,6 +9,7 @@ if( isset( $_POST['reception'] ) ) {
 <html>
 <head>
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Reception Survey</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap'></script>
@@ -68,7 +69,7 @@ label { cursor: pointer }
 #intro_1 { }
 #intro_2 { }
 #intro_3 { }
-#thanks { opacity: 0 }
+#thanks { opacity: 0; display:none }
 </style>
 </head>
 <body onload="GetMap()">
@@ -224,9 +225,10 @@ $("#send_results").on("click", function(e) {
     function() {
         $("#cansee_y, #cansee_n").attr("disabled", false);
         sending = false;
-        
+
         $("#send_results").animate({opacity: 0}, 500, function() {
             $("#send_results").remove();
+            $("#thanks").show();
             $("#thanks").animate({ opacity: 1}, 500 );
         });
     });
