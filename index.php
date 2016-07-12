@@ -1,5 +1,24 @@
 <?php
 require( "config.php" );
+
+if( isset( $_GET['lang']) ) {
+    if( $_GET['lang'] === "en" ) {
+        define( "LANG", "en" );
+        define( "DIR", "ltr" );
+        define( "FONT", "'Open Sans', sans-serif" );
+    }
+    if( $_GET['lang'] === "fa" ) {
+        define( "LANG", "fa" );
+        define( "DIR", "rtl" );
+        define( "FONT", "'Amiri', serif;" );
+    }
+} else {
+    define( "LANG", "en" );
+    define( "DIR", "ltr" );
+    define( "FONT", "'Open Sans', sans-serif" );
+}
+
+require( "language.php" );
 if( isset( $_POST['reception'] ) ) {
     include( "ajax.php" );
     die;
@@ -34,9 +53,8 @@ p {
     padding: 0;
 }
 .intro p, .intro label, a.send_results {
-    font-family: 'Open Sans', sans-serif;
+    font-family: <?php echo FONT ?>;
     font-size: 1em;
-    /*font-family: 'Amiri', serif;*/
 }
 
 label { cursor: pointer }
@@ -76,34 +94,33 @@ label { cursor: pointer }
 <table class="flexbox" style="width:100%; height:100%">
     <tr>
         <td>
-            <table style="width:100%" dir="ltr">
+            <table style="width:100%" dir="<?php echo DIR ?>">
                 <tr>
                     <td colspan="3">
                         <div class="intro">
-                            <p class="emp">VOA Persian would like to know about your satellite reception quality.</p>
-                            <p>This data will be used in aggregate to improve the availability of our broadcasts. No personal information will be collected beyond general location and whether our signal is clear.</p>
+                            <p class="emp"><?php echo __("purpose") ?></p>
+                            <p><?php echo __("disclaimer") ?></p>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td class="intro_td intro_td_1 intro_td_inactive intro_td_active" style="width:40%">
                         <div id="intro_1" class="intro intro_where">
-                            <p>Where are you located?</p>
-                            <p>Click or tap map to place marker, use map zoom buttons to enlarge.</p>
+                            <p><?php echo __("click") ?></p>
                         </div>
                     </td>
                     <td class="intro_td intro_td_2 intro_td_inactive" style="width:40%">
                         <div id="intro_2" class="intro intro_cansee">
-                            <p>From there, can you watch VOA Persian with a satellite dish?</p>
-                            <input id="cansee_y" type="radio" name="cansee" value="y" /><label for="cansee_y">Yes</label>
-                            <input id="cansee_n" type="radio" name="cansee" value="n" /><label for="cansee_n">No</label>
+                            <p><?php echo __("quality") ?></p>
+                            <input id="cansee_y" type="radio" name="cansee" value="y" /><label for="cansee_y"><?php echo __("clear") ?></label>
+                            <input id="cansee_n" type="radio" name="cansee" value="n" /><label for="cansee_n"><?php echo __("noisy") ?></label>
                         </div>
                     </td>
                     <td class="intro_td intro_td_3 intro_td_inactive" style="width:20%" class="flexbox_right_top">
                         <div id="intro_3" class="intro intro_send">
-                            <a href="#" id="send_results" class="send_results">Click to<br/>Send<br/>Results</a>
+                            <a href="#" id="send_results" class="send_results"><?php echo __("send") ?></a>
                             <div id="thanks">
-                                <p>Thank you for participating.</p>
+                                <p><?php echo __("thanks") ?></p>
                             </div>
                         </div>
                     </td>
